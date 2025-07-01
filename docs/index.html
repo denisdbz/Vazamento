@@ -1,103 +1,86 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Relatório de Vazamento</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🔐 Relatório de Vazamento</title>
   <style>
     body {
-      background-color: #000;
-      color: #00ffcc;
+      background: radial-gradient(#000, #111);
+      color: #00ffe0;
       font-family: 'Courier New', monospace;
       padding: 20px;
     }
-
     h1 {
       text-align: center;
-      animation: neon 1.5s ease-in-out infinite alternate;
+      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+      margin-bottom: 30px;
+      font-size: 2.5rem;
     }
-
-    @keyframes neon {
-      from {
-        text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
-      }
-      to {
-        text-shadow: 0 0 20px #00ffee, 0 0 30px #00ffee;
-      }
-    }
-
     .section {
       background: #111;
-      border: 1px solid #00ffcc;
-      border-radius: 8px;
-      padding: 10px;
+      border: 1px solid #0ff;
+      border-radius: 10px;
       margin: 20px 0;
+      padding: 15px;
+      transition: 0.3s ease;
     }
-
+    .section:hover {
+      background: #1a1a1a;
+      box-shadow: 0 0 10px #00ffe0;
+    }
     .section h2 {
       margin: 0;
       cursor: pointer;
+      user-select: none;
     }
-
     .content {
       display: none;
       margin-top: 10px;
       background: #000;
       padding: 10px;
-      border-left: 3px solid #0f0;
+      border-left: 4px solid #0f0;
       white-space: pre-wrap;
       overflow-x: auto;
     }
-
     footer {
       text-align: center;
-      margin-top: 50px;
-      color: #666;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    a {
+      color: #0ff;
     }
   </style>
 </head>
 <body>
-
   <h1>🔐 Relatório de Vazamento</h1>
-  <p>Email verificado: <strong>oliveira.daniel21@yahoo.com.br</strong></p>
+  <p>Email analisado: <strong>oliveira.daniel21@yahoo.com.br</strong></p>
 
   <div class="section">
     <h2 onclick="toggleContent(this)">📌 Have I Been Pwned</h2>
     <div class="content">
-You're probably a bot, try the official API instead: https://haveibeenpwned.com/API/v3
+Você é provavelmente um bot. Tente a API oficial: https://haveibeenpwned.com/API/v3
     </div>
   </div>
 
   <div class="section">
     <h2 onclick="toggleContent(this)">🕵️ IntelligenceX</h2>
     <div class="content">
-&lt;html lang="en"&gt;
-&lt;head&gt;
-&lt;meta charset="utf-8"&gt;
-&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
-&lt;title&gt;IntelligenceX Search&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-... conteúdo renderizado em HTML da resposta do site ...
-&lt;/body&gt;
-&lt;/html&gt;
+&lt;html&gt;... (trecho HTML ofuscado da resposta do site) ...&lt;/html&gt;
     </div>
   </div>
 
   <div class="section">
     <h2 onclick="toggleContent(this)">🔎 DuckDuckGo Search Results</h2>
     <div class="content">
-&lt;html&gt;
-&lt;title&gt;302 Found&lt;/title&gt;
-&lt;body&gt;
-&lt;h1&gt;302 Found&lt;/h1&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+&lt;html&gt;&lt;title&gt;302 Found&lt;/title&gt;&lt;body&gt;&lt;h1&gt;302 Found&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
     </div>
   </div>
 
   <footer>
-    Gerado automaticamente em <span id="datetime"></span> | por OSINT Leak Checker 🔍
+    Gerado automaticamente em <span id="datetime"></span> | por <a href="https://github.com/denisdbz">Denis</a> 🚀
   </footer>
 
   <script>
@@ -105,9 +88,7 @@ You're probably a bot, try the official API instead: https://haveibeenpwned.com/
       const content = header.nextElementSibling;
       content.style.display = content.style.display === "block" ? "none" : "block";
     }
-
-    document.getElementById('datetime').textContent = new Date().toUTCString();
+    document.getElementById("datetime").textContent = new Date().toLocaleString();
   </script>
-
 </body>
 </html>
