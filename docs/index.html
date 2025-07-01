@@ -6,106 +6,107 @@
   <title>Relatório de Vazamento</title>
   <style>
     body {
-      margin: 0;
-      font-family: monospace;
-      background: black;
-      color: #00ff9f;
-      padding: 2rem;
+      background-color: #000;
+      color: #00ffcc;
+      font-family: 'Courier New', monospace;
+      padding: 20px;
     }
 
     h1 {
       text-align: center;
-      color: #00ffcc;
       animation: neon 1.5s ease-in-out infinite alternate;
     }
 
     @keyframes neon {
       from {
-        text-shadow: 0 0 10px #00ffe0, 0 0 20px #00ffe0;
+        text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
       }
       to {
-        text-shadow: 0 0 20px #00ffcc, 0 0 30px #00ffcc;
+        text-shadow: 0 0 20px #00ffee, 0 0 30px #00ffee;
       }
     }
 
     .section {
-      margin: 2rem auto;
       background: #111;
-      padding: 1rem;
-      border-left: 5px solid #0f0;
+      border: 1px solid #00ffcc;
       border-radius: 8px;
+      padding: 10px;
+      margin: 20px 0;
     }
 
     .section h2 {
-      margin-top: 0;
-      color: #00ffcc;
+      margin: 0;
       cursor: pointer;
     }
 
     .content {
       display: none;
-      padding-top: 1rem;
-      color: #0f0;
+      margin-top: 10px;
+      background: #000;
+      padding: 10px;
+      border-left: 3px solid #0f0;
       white-space: pre-wrap;
+      overflow-x: auto;
     }
 
     footer {
-      margin-top: 4rem;
       text-align: center;
-      font-size: 0.9em;
-      color: #888;
+      margin-top: 50px;
+      color: #666;
     }
   </style>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const toggles = document.querySelectorAll(".section h2");
-      toggles.forEach(toggle => {
-        toggle.addEventListener("click", () => {
-          const content = toggle.nextElementSibling;
-          content.style.display = content.style.display === "block" ? "none" : "block";
-        });
-      });
-    });
-  </script>
 </head>
 <body>
+
   <h1>🔐 Relatório de Vazamento</h1>
-  <p><strong>Email verificado:</strong> <span style="color: #0ff">oliveira.daniel21@yahoo.com.br</span></p>
+  <p>Email verificado: <strong>oliveira.daniel21@yahoo.com.br</strong></p>
 
   <div class="section">
-    <h2>📌 Have I Been Pwned (clique para ver)</h2>
+    <h2 onclick="toggleContent(this)">📌 Have I Been Pwned</h2>
     <div class="content">
-      Você é provavelmente um bot. Tente a API oficial: https://haveibeenpwned.com/API/v3
+Você é provavelmente um bot. Tente a API oficial: https://haveibeenpwned.com/API/v3
     </div>
   </div>
 
   <div class="section">
-    <h2>🔍 IntelligenceX (clique para ver)</h2>
+    <h2 onclick="toggleContent(this)">🕵️ IntelligenceX</h2>
     <div class="content">
-      &lt;html&gt;
-      &lt;head&gt;
-        &lt;title&gt;IntelligenceX Result&lt;/title&gt;
-      &lt;/head&gt;
-      &lt;body&gt;
-        [HTML capturado do site]
-      &lt;/body&gt;
-      &lt;/html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+&lt;title&gt;IntelligenceX Search&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+... [código HTML removido por brevidade]
+&lt;/body&gt;
+&lt;/html&gt;
     </div>
   </div>
 
   <div class="section">
-    <h2>🔎 DuckDuckGo Search Results (clique para ver)</h2>
+    <h2 onclick="toggleContent(this)">🔎 DuckDuckGo Search Results</h2>
     <div class="content">
-      &lt;html&gt;&lt;title&gt;302 Found&lt;/title&gt;&lt;body&gt;&lt;h1&gt;302 Found&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+&lt;html&gt;
+&lt;title&gt;302 Found&lt;/title&gt;
+&lt;body&gt;
+&lt;h1&gt;302 Found&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
     </div>
   </div>
 
   <footer>
-    Gerado por: OSINT Email Leak Checker – <span id="data"></span>
+    Gerado automaticamente em <span id="datetime"></span> | por OSINT Leak Checker 🔍
   </footer>
 
   <script>
-    document.getElementById("data").textContent = new Date().toUTCString();
+    function toggleContent(header) {
+      const content = header.nextElementSibling;
+      content.style.display = content.style.display === "block" ? "none" : "block";
+    }
+
+    document.getElementById('datetime').textContent = new Date().toUTCString();
   </script>
 </body>
 </html>
