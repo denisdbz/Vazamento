@@ -1,122 +1,191 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>Relatório de Vazamento</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      background-color: #000;
-      color: #00ffcc;
-      font-family: 'Courier New', monospace;
-      padding: 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      animation: glow 1.5s ease-in-out infinite alternate;
-    }
-
-    @keyframes glow {
-      from { text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc; }
-      to   { text-shadow: 0 0 20px #00ffee, 0 0 30px #00ffee; }
-    }
-
-    .section {
-      background: #111;
-      border: 1px solid #00ffcc;
-      border-radius: 8px;
-      margin: 20px 0;
-      padding: 10px;
-    }
-
-    .section h2 {
-      margin: 0;
-      cursor: pointer;
-      font-size: 1.3rem;
-    }
-
-    .content {
-      display: none;
-      margin-top: 10px;
-      background: #000;
-      padding: 10px;
-      border-left: 3px solid #0f0;
-      white-space: pre-wrap;
-      overflow-x: auto;
-    }
-
-    .info {
-      background-color: #111;
-      padding: 10px;
-      margin-bottom: 20px;
-      border-left: 3px solid #0ff;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 50px;
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    a {
-      color: #0ff;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <title>Relatório de vazamentos - oliveira.daniel21@yahoo.com.br</title>
 </head>
-<body>
+<body style="font-family: Arial; background-color: #111; color: #eee;">
+  <h1>Relatório de Vazamentos</h1>
+  <p><b>Email pesquisado:</b> oliveira.daniel21@yahoo.com.br</p>
 
-  <h1>🔐 Relatório de Vazamento</h1>
+  <h2>Scylla.sh</h2>
+  <pre></pre>
 
-  <div class="info">
-    <p><strong>Email verificado:</strong> oliveira.daniel21@yahoo.com.br</p>
-    <p><strong>Data:</strong> <span id="datetime"></span></p>
-  </div>
+  <h2>GitHub</h2>
+  <pre>
 
-  <div class="section">
-    <h2 onclick="toggleContent(this)">📌 Have I Been Pwned</h2>
-    <div class="content">
-You're probably a bot, try the official API instead: https://haveibeenpwned.com/API/v3
-    </div>
-  </div>
-
-  <div class="section">
-    <h2 onclick="toggleContent(this)">🕵️ IntelligenceX</h2>
-    <div class="content">
 &lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;&lt;title&gt;IntelligenceX Results&lt;/title&gt;&lt;/head&gt;
-&lt;body&gt;...resultado ofuscado...&lt;/body&gt;
-&lt;/html&gt;
-    </div>
-  </div>
+&lt;html
+  lang="en"
+  
+  data-color-mode="auto" data-light-theme="light" data-dark-theme="dark"
+  data-a11y-animated-images="system" data-a11y-link-underlines="true"
+  
+  &gt;
 
-  <div class="section">
-    <h2 onclick="toggleContent(this)">🔎 DuckDuckGo Search</h2>
-    <div class="content">
-&lt;html&gt;&lt;title&gt;302 Found&lt;/title&gt;&lt;body&gt;&lt;h1&gt;302 Found&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
-    </div>
-  </div>
 
-  <footer>
-    Criado automaticamente com <strong>OSINT Leak Checker</strong> 🧠 por <a href="https://github.com/denisdbz" target="_blank">Denis Oliveira</a>
-  </footer>
 
-  <script>
-    function toggleContent(header) {
-      const content = header.nextElementSibling;
-      content.style.display = content.style.display === "block" ? "none" : "block";
-    }
-    document.getElementById("datetime").textContent = new Date().toLocaleString("pt-BR");
-  </script>
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+  &lt;link rel="dns-prefetch" href="https://github.githubassets.com"&gt;
+  &lt;link rel="dns-prefetch" href="https://avatars.githubusercontent.com"&gt;
+  &lt;link rel="dns-prefetch" href="https://github-cloud.s3.amazonaws.com"&gt;
+  &lt;link rel="dns-prefetch" href="https://user-images.githubusercontent.com/"&gt;
+  &lt;link rel="preconnect" href="https://github.githubassets.com" crossorigin&gt;
+  &lt;link rel="preconnect" href="https://avatars.githubusercontent.com"&gt;
 
+  
+
+
+  &lt;link crossorigin="anonymous" media="all" rel="stylesheet" href="https://github.githubassets.com/assets/light-c59dc71e3a4c.css" /&gt;&lt;link crossorigin="anonymous" media="all" rel="stylesheet" href="https://github.githubassets.com/assets/light_high_contrast-4bf0cb726930.css" /&gt;&lt;link crossorigin="anonymous" media="all" rel="stylesheet" href="https://github.githubassets.com/assets/dark-89751e879f8b.css" /&gt;&lt;link crossorigin="anonymous" media="all" rel="stylesheet" href="https://github.githubassets.com/assets/dark_high_contrast-67c7180a598a.css" /&gt;&lt;link data-color-theme="light" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/light-c59dc71e3a4c.css" /&gt;&lt;link data-color-theme="light_high_contrast" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/light_high_contrast-4bf0cb726930.css" /&gt;&lt;link data-color-theme="light_colorblind" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/light_colorblind-6060e905eb78.css" /&gt;&lt;link data-color-theme="light_colorblind_high_contrast" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/light_colorblind_high_contrast-04e818620b9c.css" /&gt;&lt;link data-color-theme="light_tritanopia" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/light_tritanopia-ae65df249e0f.css" /&gt;&lt;link data-color-theme="light_tritanopia_high_contrast" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/light_tritanopia_high_contrast-fdadc12a1ec2.css" /&gt;&lt;link data-color-theme="dark" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/dark-89751e879f8b.css" /&gt;&lt;link data-color-theme="dark_high_contrast" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/dark_high_contrast-67c7180a598a.css" /&gt;&lt;link data-color-theme="dark_colorblind" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/dark_colorblind-4277e18a7c75.css" /&gt;&lt;link data-color-theme="dark_colorblind_high_contrast" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/dark_colorblind_high_contrast-2e33ed61bc8c.css" /&gt;&lt;link data-color-theme="dark_tritanopia" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/dark_tritanopia-48d44d87614d.css" /&gt;&lt;link data-color-theme="dark_tritanopia_high_contrast" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/dark_tritanopia_high_contrast-6adcb5080302.css" /&gt;&lt;link data-color-theme="dark_dimmed" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/dark_dimmed-250cee4c1ea8.css" /&gt;&lt;link data-color-theme="dark_dimmed_high_contrast" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/dark_dimmed_high_contrast-e3802beb8c06.css" /&gt;
+
+
+    &lt;link crossorigin="anonymous" media="all" rel="stylesheet" href="https://github.githubassets.com/assets/primer-primitives-225433424a87.css" /&gt;
+    &lt;link crossorigin="anonymous" media="all" rel="stylesheet" href="https://github.githubassets.com/assets/primer-fe85dc7854c9.css" /&gt;
+    &lt;link crossorigin="anonymous" media="all" rel="stylesheet" href="https://github.githubassets.com/assets/global-6bbbf6cbd6d5.css" /&gt;
+    &lt;link crossorigin="anonymous" media="all" rel="stylesheet" href="https://github.githubassets.com/assets/github-d1cc0ec46f86.css" /&gt;
+  &lt;link crossorigin="anonymous" media="all" rel="stylesheet" href="https://github.githubassets.com/assets/search-2a3fe1ce5c41.css" /&gt;
+
+  
+
+
+  &lt;script type="application/json" id="client-env"&gt;{"locale":"en","featureFlags":["alternate_user_config_repo","api_insights_show_missing_data_banner","appearance_settings","attestations_filtering","attestations_sorting","codespaces_prebuild_region_target_update","contact_requests_implicit_opt_in","contentful_lp_copilot_extensions","contentful_lp_flex_features","contentful_lp_footnotes","copilot_chat_attach_multiple_images","copilot_chat_custom_instructi</pre>
+
+  <h2>DuckDuckGo</h2>
+  <pre>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+
+&lt;!--[if IE 6]&gt;&lt;html class="ie6" xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;![endif]--&gt;
+&lt;!--[if IE 7]&gt;&lt;html class="lt-ie8 lt-ie9" xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;![endif]--&gt;
+&lt;!--[if IE 8]&gt;&lt;html class="lt-ie9" xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;![endif]--&gt;
+&lt;!--[if gt IE 8]&gt;&lt;!--&gt;&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;!--&lt;![endif]--&gt;
+&lt;head&gt;
+  &lt;meta http-equiv="content-type" content="text/html; charset=UTF-8" /&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=1" /&gt;
+  &lt;meta name="referrer" content="origin" /&gt;
+  &lt;meta name="HandheldFriendly" content="true" /&gt;
+  &lt;meta name="robots" content="noindex, nofollow" /&gt;
+  &lt;title&gt;oliveira.daniel21@yahoo.com.br at DuckDuckGo&lt;/title&gt;
+  &lt;link title="DuckDuckGo (HTML)" type="application/opensearchdescription+xml" rel="search" href="//duckduckgo.com/opensearch_html_v2.xml" /&gt;
+  &lt;link href="//duckduckgo.com/favicon.ico" rel="shortcut icon" /&gt;
+  &lt;link rel="icon" href="//duckduckgo.com/favicon.ico" type="image/x-icon" /&gt;
+  &lt;link id="icon60" rel="apple-touch-icon" href="//duckduckgo.com/assets/icons/meta/DDG-iOS-icon_60x60.png?v=2"/&gt;
+  &lt;link id="icon76" rel="apple-touch-icon" sizes="76x76" href="//duckduckgo.com/assets/icons/meta/DDG-iOS-icon_76x76.png?v=2"/&gt;
+  &lt;link id="icon120" rel="apple-touch-icon" sizes="120x120" href="//duckduckgo.com/assets/icons/meta/DDG-iOS-icon_120x120.png?v=2"/&gt;
+  &lt;link id="icon152" rel="apple-touch-icon" sizes="152x152" href="//duckduckgo.com/assets/icons/meta/DDG-iOS-icon_152x152.png?v=2"/&gt;
+  &lt;link rel="image_src" href="//duckduckgo.com/assets/icons/meta/DDG-icon_256x256.png"&gt;
+  &lt;link rel="stylesheet" media="handheld, all" href="//duckduckgo.com/dist/h.0d389dd02de7e1030cde.css" type="text/css"/&gt;
+&lt;/head&gt;
+
+&lt;body class="body--html"&gt;
+  &lt;a name="top" id="top"&gt;&lt;/a&gt;
+
+  &lt;form action="/html/" method="post"&gt;
+    &lt;input type="text" name="state_hidden" id="state_hidden" /&gt;
+  &lt;/form&gt;
+
+  &lt;div&gt;
+    &lt;div class="site-wrapper-border"&gt;&lt;/div&gt;
+
+    &lt;div id="header" class="header cw header--html"&gt;
+        &lt;a title="DuckDuckGo" href="/html/" class="header__logo-wrap"&gt;&lt;/a&gt;
+
+
+    &lt;form name="x" class="header__form" action="/html/" method="post"&gt;
+
+      &lt;div class="search search--header"&gt;
+          &lt;input name="q" autocomplete="off" class="search__input" id="search_form_input_homepage" type="text" value="oliveira.daniel21@yahoo.com.br" /&gt;
+          &lt;input name="b" id="search_button_homepage" class="search__button search__button--html" value="" title="Search" alt="Search" type="submit" /&gt;
+      &lt;/div&gt;
+
+
+    
+    
+    
+    
+
+    &lt;div class="frm__select"&gt;
+      &lt;select name="kl"&gt;
+      
+        &lt;option value="" &gt;All Regions&lt;/option&gt;
+      
+        &lt;option value="ar-es" &gt;Argentina&lt;/option&gt;
+      
+        &lt;option value="au-en" &gt;Australia&lt;/option&gt;
+      
+        &lt;option value="at-de" &gt;Austria&lt;/option&gt;
+      
+        &lt;option value="be-fr" &gt;Belgium (fr)&lt;/option&gt;
+      
+        &lt;option value="be-nl" &gt;Belgium (nl)&lt;/option&gt;
+      
+        &lt;option value="br-pt" &gt;Brazil&lt;/option&gt;
+      
+        &lt;option value="bg-bg" &gt;Bulgaria&lt;/option&gt;
+      
+        &lt;option value="ca-en" &gt;Canada (en)&lt;/option&gt;
+      
+        &lt;option value="ca-fr" &gt;Canada (fr)&lt;/option&gt;
+      
+        &lt;option value="ct-ca" &gt;Catalonia&lt;/option&gt;
+      
+        &lt;option value="cl-es" &gt;Chile&lt;/option&gt;
+      
+        &lt;option value="cn-zh" &gt;China&lt;/option&gt;
+      
+        &lt;option value="co-es" &gt;Colombia&lt;/option&gt;
+      
+        &lt;option value="hr-hr" &gt;Croatia&lt;/option&gt;
+      
+        &lt;option value="cz-cs" &gt;Czech Republic&lt;/option&gt;
+      
+        &lt;option value="dk-da" &gt;Denmark&lt;/option&gt;
+      
+        &lt;option value="ee-et" &gt;Estonia&lt;/option&gt;
+      
+        &lt;option value="fi-fi" &gt;Finland&lt;/option&gt;
+      
+        &lt;option value="fr-fr" &gt;France&lt;/option&gt;
+      
+        &lt;option value="de-de" &gt;Germany&lt;/option&gt;
+      
+        &lt;option value="gr-el" &gt;Greece&lt;/option&gt;
+      
+        &lt;option value="hk-tzh" &gt;Hong Kong&lt;/option&gt;
+      
+        &lt;option value="hu-hu" &gt;Hungary&lt;/option&gt;
+      
+        &lt;option value="is-is" &gt;Iceland&lt;/option&gt;
+      
+        &lt;option value="in-en" &gt;India (en)&lt;/option&gt;
+      
+        &lt;option value="id-en" &gt;Indonesia (en)&lt;/option&gt;
+      
+        &lt;option value="ie-en" &gt;Ireland&lt;/option&gt;
+      
+        &lt;option value="il-en" &gt;Israel (en)&lt;/option&gt;
+      
+        &lt;option value="it-it" &gt;Italy&lt;/option&gt;
+      
+        &lt;option value="jp-jp" &gt;Japan&lt;/option&gt;
+      
+        &lt;option value="kr-kr" &gt;Korea&lt;/option&gt;
+      
+        &lt;option value="lv-lv" &gt;Latvia&lt;/option&gt;
+      
+        &lt;option value="lt-lt" &gt;Lithuania&lt;/option&gt;
+      
+        &lt;option value="my-en" &gt;Malaysia (en)&lt;/option&gt;
+      
+        &lt;option value="mx-es" &gt;Mexico&lt;/option&gt;
+      
+        &lt;option value="nl-nl" &gt;Netherlands&lt;/option&gt;
+      
+        &lt;option value="nz-en" &gt;New Zealand&lt;/option&gt;
+      
+        &lt;option value="no-no" &gt;Norway&lt;/option&gt;
+      
+        &lt;option value="pk-en" &gt;Pakistan (en)&lt;/option&gt;
+     </pre>
+
+  <footer><p>🛡️ Script OSINT by ChatGPT + Denis</p></footer>
 </body>
 </html>
