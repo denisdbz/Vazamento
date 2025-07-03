@@ -1,0 +1,5 @@
+http://www.w3.org/1999/xhtml
+http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd
+https://accounts.google.com/AccountChooser/signinchooser?flowName=GlifWebSignIn
+https://accounts.google.com/Login
+https://accounts.google.com/login?service=mail

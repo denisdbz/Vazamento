@@ -1,0 +1,78 @@
+/* === Página inicial === */
+body.pagina-inicial {
+  background: #000;
+  color: #00ffe0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 2rem;
+}
+
+input[type="email"] {
+  padding: 0.6rem;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  border: none;
+  width: 300px;
+  text-align: center;
+}
+
+button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background: #00ffe0;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.resultado {
+  background: #1b1b1b;
+  color: #ccc;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  font-family: monospace;
+  overflow-x: auto;
+}
+
+.resultado a {
+  color: #00e0ff;
+  text-decoration: underline;
+}
+
+/* === Estilo para relatórios salvos === */
+body.relatorios {
+  background-color: #000;
+  color: #ccc;
+  font-family: "Courier New", monospace;
+  padding: 2rem;
+}
+
+.relatorios h1,
+.relatorios h2 {
+  color: #00ffe0;
+  border-bottom: 1px solid #00ffe0;
+  padding-bottom: 5px;
+  margin-top: 30px;
+}
+
+.relatorios a {
+  color: #00e0ff;
+  text-decoration: underline;
+}
+
+.relatorios .section {
+  margin-bottom: 25px;
+  background: #111;
+  padding: 1em;
+  border-left: 4px solid #0f0;
+  border-radius: 6px;
+}

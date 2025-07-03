@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Vazamento Checker</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>🔍 Vazamento Checker</h1>
+
+  <form method="POST">
+    <input type="email" name="email" placeholder="exemplo@email.com" required>
+    <button type="submit">Verificar</button>
+  </form>
+
+  {% if relatorio_html %}
+    <hr>
+    <h2>📋 Resultado:</h2>
+    <div class="resultado">
+      {{ relatorio_html|safe }}
+    </div>
+  {% endif %}
+</body>
+</html>
