@@ -1,87 +1,113 @@
 #!/bin/bash
 
-EMAIL="$1"
+EMAIL=$1
 TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
-DIR="relatorios/leak_report_$TIMESTAMP"
-mkdir -p "$DIR"
+OUTPUT_DIR="relatorios/leak_report_$TIMESTAMP"
+mkdir -p "$OUTPUT_DIR"
 
-echo "📧 Verificando: $EMAIL"
-echo "📂 Salvando em: $DIR"
+REPORT_FILE="$OUTPUT_DIR/relatorio.html"
+RAW_FILE="$OUTPUT_DIR/raw.txt"
 
-# === GitHub Search (pegar links de repositórios) ===
-echo "🔍 Buscando no GitHub..."
-GITHUB_RESULTS=$(curl -s "https://github.com/search?q=$EMAIL" | grep -oE 'https://github\.com/[^"]+' | sort -u | head -n 5)
-echo "$GITHUB_RESULTS" > "$DIR/github.txt"
+echo "Email analisado: $EMAIL" > "$RAW_FILE"
+echo "--------------------------------------" >> "$RAW_FILE"
 
-# === DuckDuckGo Search (pegar links úteis) ===
-echo "🔍 Buscando no DuckDuckGo..."
-DUCK_URL="https://html.duckduckgo.com/html"
-DUCK_RESULTS=$(curl -s -L -X POST "$DUCK_URL" -d "q=$EMAIL" | grep -oE 'https?://[a-zA-Z0-9./?=_-]*' | grep -v "duckduckgo" | sort -u | head -n 5)
-echo "$DUCK_RESULTS" > "$DIR/duck.txt"
+############################################
+# DUCKDUCKGO
+############################################
+DUCK_URL="https://lite.duckduckgo.com/lite"
 
-# === Gerar HTML Final ===
-echo "📁 Gerando relatório HTML..."
+DUCK_RESULTS=$(curl -s -L -X POST "$DUCK_URL" -d "q=$EMAIL" | grep -oP 'https?://[^\s"<]+' | grep -Ev '\.(css|js|ico|png|jpg|jpeg|svg|woff|ttf)' | grep -v 'duckduckgo.com' | sort -u | head -n 10)
 
-cat <<EOF > "$DIR/relatorio.html"
+echo -e "\n[DuckDuckGo Results]\n$DUCK_RESULTS" >> "$RAW_FILE"
+
+############################################
+# GITHUB
+############################################
+GITHUB_SEARCH_URL="https://github.com/search?q=$EMAIL"
+
+GITHUB_RESULTS=$(curl -s "$GITHUB_SEARCH_URL" \
+  | grep -oP 'href="/[^"]+"' \
+  | grep -E '^href="/[^/]+/[^/"]+"' \
+  | sed 's/href="//;s/"$//' \
+  | sed 's|^|https://github.com|' \
+  | sort -u | head -n 10)
+
+echo -e "\n[GitHub Results]\n$GITHUB_RESULTS" >> "$RAW_FILE"
+
+############################################
+# GERAR HTML
+############################################
+
+cat <<EOF > "$REPORT_FILE"
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <title>Relatório de Vazamentos</title>
-  <link rel="stylesheet" href="../static/style.css">
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #00ffcc;
+      font-family: monospace;
+      padding: 2em;
+    }
+    h1 {
+      color: #00ffcc;
+      text-align: center;
+    }
+    .section {
+      margin-top: 2em;
+    }
+    a {
+      color: #00ffcc;
+      text-decoration: underline;
+    }
+    hr {
+      border: 0;
+      border-top: 1px solid #00ffcc44;
+      margin: 2em 0;
+    }
+  </style>
 </head>
-<body class="relatorios">
-  <h1>🧪 Relatório de Vazamentos</h1>
-  <p><strong>Email analisado:</strong> $EMAIL</p>
+<body>
+
+<h1>🧪 Relatório de Vazamentos</h1>
+
+<p><strong>Email analisado:</strong> $EMAIL</p>
+
+<div class="section">
+  <h2>🔎 DuckDuckGo</h2>
+  <ul>
 EOF
 
-# === DuckDuckGo Section ===
-echo "<h2>🔎 DuckDuckGo</h2>" >> "$DIR/relatorio.html"
-echo "<div class=\"section\">" >> "$DIR/relatorio.html"
-if [ -s "$DIR/duck.txt" ]; then
-  while read -r url; do
-    echo "<a href=\"$url\" target=\"_blank\">$url</a><br>" >> "$DIR/relatorio.html"
-  done < "$DIR/duck.txt"
-else
-  echo "<p class=\"fail\">Nenhum resultado encontrado no DuckDuckGo.</p>" >> "$DIR/relatorio.html"
-fi
-echo "</div>" >> "$DIR/relatorio.html"
+for link in $DUCK_RESULTS; do
+  echo "    <li><a href=\"$link\" target=\"_blank\">$link</a></li>" >> "$REPORT_FILE"
+done
 
-# === GitHub Section ===
-echo "<h2>💻 GitHub</h2>" >> "$DIR/relatorio.html"
-echo "<div class=\"section\">" >> "$DIR/relatorio.html"
-if [ -s "$DIR/github.txt" ]; then
-  while read -r url; do
-    echo "<a href=\"$url\" target=\"_blank\">$url</a><br>" >> "$DIR/relatorio.html"
-  done < "$DIR/github.txt"
-else
-  echo "<p class=\"fail\">Nenhum resultado encontrado no GitHub.</p>" >> "$DIR/relatorio.html"
-fi
-echo "</div>" >> "$DIR/relatorio.html"
+cat <<EOF >> "$REPORT_FILE"
+  </ul>
+</div>
 
-# === Rodapé ===
-cat <<EOF >> "$DIR/relatorio.html"
-  <footer>
-    <p>🕒 Relatório gerado automaticamente em $(date +"%d/%m/%Y %H:%M")</p>
-  </footer>
+<div class="section">
+  <h2>💻 GitHub</h2>
+  <ul>
+EOF
+
+for link in $GITHUB_RESULTS; do
+  echo "    <li><a href=\"$link\" target=\"_blank\">$link</a></li>" >> "$REPORT_FILE"
+done
+
+DATA_ATUAL=$(date "+%d/%m/%Y %H:%M")
+
+cat <<EOF >> "$REPORT_FILE"
+  </ul>
+</div>
+
+<hr>
+<p>🕒 Relatório gerado automaticamente em $DATA_ATUAL</p>
+
 </body>
 </html>
 EOF
 
-# === Envio para Telegram (opcional) ===
-echo "📤 Enviando para Telegram..."
-if [ -f token.env ]; then
-  source token.env
-  if [ -n "$TELEGRAM_BOT_TOKEN" ] && [ -n "$TELEGRAM_CHAT_ID" ]; then
-    curl -F chat_id="$TELEGRAM_CHAT_ID" \
-         -F document=@"$DIR/relatorio.html" \
-         "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendDocument" >/dev/null 2>&1 && \
-    echo "✅ Enviado via Telegram!"
-  else
-    echo "⚠️  Variáveis TELEGRAM_BOT_TOKEN e TELEGRAM_CHAT_ID não encontradas."
-  fi
-else
-  echo "⚠️  Arquivo token.env não encontrado (envie manualmente, se quiser)."
-fi
-
-echo "✅ Relatório salvo em: $DIR/relatorio.html"
+echo -e "\n[+] Relatório salvo em: $REPORT_FILE"

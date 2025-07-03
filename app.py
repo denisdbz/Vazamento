@@ -11,8 +11,6 @@ def index():
 
     if request.method == "POST":
         email = request.form["email"]
-
-        # Diretório de relatórios
         relatorio_dir = "relatorios"
         pastas = sorted(os.listdir(relatorio_dir), reverse=True)
 
@@ -22,9 +20,9 @@ def index():
                 with open(caminho_relatorio, "r", encoding="utf-8") as f:
                     html = f.read()
                     soup = BeautifulSoup(html, "html.parser")
-                    bloco = soup.find("div", class_="relatorio-bloco")
-                    if bloco:
-                        relatorio_html = str(bloco)
+                    corpo = soup.body
+                    if corpo:
+                        relatorio_html = str(corpo)
                         break
 
     return render_template("index.html", relatorio_html=relatorio_html)
